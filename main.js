@@ -44,6 +44,83 @@ const PROJECTS = [
   }
 ];
 
+// Client websites shown in the "Websites" grid, in order.
+// video/poster live in assets/sites/. links: first one is the main "Visit" link.
+const SITES = [
+  {
+    name: 'NGL · Neo Global Logistics',
+    domain: 'nglge.com',
+    kind: 'Logistics · website',
+    desc: 'Multilingual site for a Tbilisi freight forwarder working across road, sea, rail and air: services, transport routes, partners and contact, in one fast page.',
+    tags: ['Logistics', 'Multilingual'],
+    media: 'nglge',
+    links: [{ label: 'Visit nglge.com', href: 'https://www.nglge.com/' }]
+  },
+  {
+    name: 'PotiShipping',
+    domain: 'potishipping.ge',
+    kind: 'Logistics · website',
+    desc: 'Shipping and logistics company site with shipment tracking, service pages and a global network map, in English, Georgian and Russian, with a dark mode.',
+    tags: ['Multilingual', 'Tracking'],
+    media: 'potishipping',
+    links: [{ label: 'Visit potishipping.ge', href: 'https://potishipping.ge/' }]
+  },
+  {
+    name: 'Alliance Logistic Group',
+    domain: 'alliancelgroup.com',
+    kind: 'Logistics · website',
+    desc: 'Georgian logistics company site covering road, sea, air and rail freight and customs clearance, with a cargo cost calculator.',
+    tags: ['Calculator', 'Georgian'],
+    media: 'alliance',
+    links: [{ label: 'Visit alliancelgroup.com', href: 'https://alliancelgroup.com/' }]
+  },
+  {
+    name: 'DAPNA Trading Company',
+    domain: 'dapnaltd.com',
+    kind: 'E-commerce · online store',
+    desc: 'Online store for a tea distributor: product catalogue, categories, deals of the day and a cart, in Georgian.',
+    tags: ['E-commerce', 'Catalogue'],
+    media: 'dapnaltd',
+    links: [{ label: 'Visit dapnaltd.com', href: 'https://dapnaltd.com/' }]
+  },
+  {
+    name: 'DAPNA Employee Portal',
+    domain: 'my.dapnaltd.com',
+    kind: 'Internal system · HR portal',
+    desc: 'Staff portal for a company with offices in Tbilisi, Batumi, Kutaisi, Telavi and Khashuri. Employees sign in to handle leave, equipment and their documents in one place.',
+    tags: ['HR', 'Internal tool', 'Auth'],
+    media: 'dapnaportal',
+    links: [{ label: 'Sign-in page', href: 'https://my.dapnaltd.com/' }]
+  },
+  {
+    name: 'Xəbər.ge',
+    domain: 'xeber.ge',
+    kind: 'Media · news portal',
+    desc: 'Azerbaijani-language news portal: daily news by category, health and society sections, and exchange rates.',
+    tags: ['News', 'CMS'],
+    media: 'xeber',
+    links: [{ label: 'Visit xeber.ge', href: 'https://xeber.ge/' }]
+  },
+  {
+    name: 'İman Media',
+    domain: 'imanmedia.net',
+    kind: 'Media · video and audio portal',
+    desc: 'Media portal for watching and listening: a video library, live streams and audio in one place.',
+    tags: ['Video', 'Streaming'],
+    media: 'imanmedia',
+    links: [{ label: 'Visit imanmedia.net', href: 'https://imanmedia.net/' }]
+  },
+  {
+    name: 'Dinimiz.net',
+    domain: 'dinimiz.net',
+    kind: 'Web app · religious resources hub',
+    desc: 'A single home for Islamic resources: Quran, hadith, azan times, books, qibla direction, calendar, mosques, duas, media and infographics.',
+    tags: ['Web app', 'Hub'],
+    media: 'dinimiz',
+    links: [{ label: 'Visit dinimiz.net', href: 'https://dinimiz.net/' }]
+  }
+];
+
 // Skill groups shown in "Stack".
 const STACK_GROUPS = [
   { title: 'Languages', items: ['C#', 'SQL', 'JavaScript', 'HTML & CSS'] },
@@ -83,6 +160,23 @@ $('#workList').innerHTML = PROJECTS.map((p, i) => `
       ${p.points && p.points.length ? `<ul class="points">${p.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
       <div class="project-links">${p.links.map((l, j) => `<a class="btn ${j ? 'btn-ghost' : 'btn-primary'}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>
+    </div>
+  </article>`).join('');
+
+$('#siteGrid').innerHTML = SITES.map((x, i) => `
+  <article class="site reveal" style="--d:${(i % 2) * 0.08}s">
+    <div class="site-frame">
+      <div class="site-bar" aria-hidden="true"><i></i><i></i><i></i><span>${esc(x.domain)}</span></div>
+      <div class="site-media">
+        <video muted loop playsinline preload="none" poster="assets/sites/${esc(x.media)}.jpg" data-src="assets/sites/${esc(x.media)}.mp4" aria-label="${esc(x.name)} scrolling preview"></video>
+      </div>
+    </div>
+    <div class="site-body">
+      <p class="site-kind">${esc(x.kind)}</p>
+      <h3>${esc(x.name)}</h3>
+      <p class="site-desc">${esc(x.desc)}</p>
+      <div class="tags">${x.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <div class="site-links">${x.links.map(l => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>
     </div>
   </article>`).join('');
 
@@ -126,6 +220,14 @@ document.querySelectorAll('.project-media video').forEach(v => {
   }, { threshold: 0.35 }).observe(v);
   setBtn();
   if (reduceMQ.matches) btn.textContent = 'Play';
+});
+
+// Site previews: play while at least half visible, pause otherwise
+document.querySelectorAll('.site-media video').forEach(v => {
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !reduceMQ.matches) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); }
+    else v.pause();
+  }, { threshold: 0.5 }).observe(v);
 });
 
 // Copy email
