@@ -5,6 +5,23 @@
 // Projects shown in "Selected work", in order.
 const PROJECTS = [
   {
+    name: 'Bridge ERP',
+    year: 'In production',
+    kind: 'ERP · DAPNA LTD · internal system',
+    tagline: 'One web ERP that ties the company\'s systems together.',
+    desc: 'A web-based ERP I built in C# for DAPNA. It sits between the accounting, warehouse and access-control systems the company already runs, so data moves between them instead of being typed in twice.',
+    points: [
+      'Integration with Logo for accounting and ERP data',
+      'Integration with Axata for warehouse operations',
+      'Integration with BioStar for access control and attendance'
+    ],
+    tags: ['C#', 'Web', 'Logo', 'Axata', 'BioStar'],
+    video: 'assets/bridge.mp4',
+    poster: 'assets/bridge.jpg',
+    note: 'Internal company system, not public. A live walkthrough is available on request.',
+    links: []
+  },
+  {
     name: 'Window Gravity',
     year: '2026',
     kind: 'Windows app · open source',
@@ -159,7 +176,8 @@ $('#workList').innerHTML = PROJECTS.map((p, i) => `
       <p class="desc">${esc(p.desc)}</p>
       ${p.points && p.points.length ? `<ul class="points">${p.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-      <div class="project-links">${p.links.map((l, j) => `<a class="btn ${j ? 'btn-ghost' : 'btn-primary'}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>
+      ${p.note ? `<p class="private-note"><span aria-hidden="true">🔒</span> ${esc(p.note)}</p>` : ''}
+      ${p.links.length ? `<div class="project-links">${p.links.map((l, j) => `<a class="btn ${j ? 'btn-ghost' : 'btn-primary'}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}
     </div>
   </article>`).join('');
 
