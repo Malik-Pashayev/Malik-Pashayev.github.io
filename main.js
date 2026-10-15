@@ -1,211 +1,170 @@
 // ============================================================
-// CONTENT: edit these lists to update the site
-// ============================================================
-
-// Projects shown in "Selected work", in order.
-const PROJECTS = [
-  {
-    name: 'Bridge ERP',
-    year: 'In production',
-    kind: 'ERP · DAPNA LTD · internal system',
-    tagline: 'One web ERP that ties the company\'s systems together.',
-    desc: 'A web-based ERP I built in C# for DAPNA. It sits on top of Logo, Axata and BioStar, so sales, warehouse and staff data move between them instead of being typed in twice. Daily work runs from one dashboard: orders, prices, client credit, reports and bonuses.',
-    points: [
-      'Orders: Excel import, order entry and order management',
-      'Prices and clients: price lists, promotions, credit limits, block and unblock',
-      'Reports: sales detail, returns, accounting, and RS.GE to Logo invoice reconciliation',
-      'Bonuses for clients, drivers and Axata warehouse staff',
-      'Sync actions: Axata warehouse status against Logo stock, driver codes, loading points',
-      'Settings for databases, users and permissions'
-    ],
-    tags: ['C#', 'Web', 'Logo', 'Axata', 'BioStar', 'RS.GE'],
-    video: 'assets/bridge.mp4',
-    poster: 'assets/bridge.jpg',
-    note: 'Internal company system, not public. A live walkthrough is available on request.',
-    links: []
-  },
-  {
-    name: 'Window Gravity',
-    year: '2026',
-    kind: 'Windows app · open source',
-    tagline: 'Your Windows desktop, but with physics.',
-    desc: 'Grab any window, fling it and let go. It flies, bounces off the screen edges and lands on the taskbar. Throw another one and it stacks on top.',
-    points: [
-      'Release velocity measured from the mouse drag',
-      'Stacking, friction, and Moon / Earth / Jupiter / Zero-G presets',
-      'Multi-monitor and high-DPI aware, about 200 KB, lives in the tray'
-    ],
-    tags: ['C#', '.NET 9', 'Win32 API'],
-    video: 'assets/windowgravity.mp4',
-    poster: 'assets/windowgravity.jpg',
-    links: [
-      { label: 'Source on GitHub', href: 'https://github.com/Malik-Pashayev/WindowGravity' },
-      { label: 'Download', href: 'https://github.com/Malik-Pashayev/WindowGravity/releases' }
-    ]
-  },
-  {
-    name: 'Desktop Wardrobe',
-    year: '2026',
-    kind: 'Windows app · open source',
-    tagline: 'Hang your desktop clutter on a clothesline.',
-    desc: 'Push the mouse against the top of the screen and a rope drops down with your folders pegged to it. Drag things up to hang them and they leave your desktop. Pull them back down when you need them.',
-    points: [
-      'Real rope physics: the line sags, dips and sways',
-      'Files are moved, never deleted, into a normal folder',
-      'Drop items straight from the line into upload areas'
-    ],
-    tags: ['C#', '.NET 9', 'Windows Shell'],
-    video: 'assets/desktopwardrobe.mp4',
-    poster: 'assets/desktopwardrobe.jpg',
-    links: [
-      { label: 'Source on GitHub', href: 'https://github.com/Malik-Pashayev/DesktopWardrobe' },
-      { label: 'Download for Windows', href: 'https://github.com/Malik-Pashayev/DesktopWardrobe/releases/latest' }
-    ]
-  }
-];
-
-// Client websites shown in the "Websites" grid, in order.
-// video/poster live in assets/sites/. links: first one is the main "Visit" link.
-const SITES = [
-  {
-    name: 'NGL · Neo Global Logistics',
-    domain: 'nglge.com',
-    kind: 'Logistics · website',
-    desc: 'Multilingual site for a Tbilisi freight forwarder working across road, sea, rail and air: services, transport routes, partners and contact, in one fast page.',
-    tags: ['Logistics', 'Multilingual'],
-    media: 'nglge',
-    links: [{ label: 'Visit nglge.com', href: 'https://www.nglge.com/' }]
-  },
-  {
-    name: 'PotiShipping',
-    domain: 'potishipping.ge',
-    kind: 'Logistics · website',
-    desc: 'Shipping and logistics company site with shipment tracking, service pages and a global network map, in English, Georgian and Russian, with a dark mode.',
-    tags: ['Multilingual', 'Tracking'],
-    media: 'potishipping',
-    links: [{ label: 'Visit potishipping.ge', href: 'https://potishipping.ge/' }]
-  },
-  {
-    name: 'Alliance Logistic Group',
-    domain: 'alliancelgroup.com',
-    kind: 'Logistics · website',
-    desc: 'Georgian logistics company site covering road, sea, air and rail freight and customs clearance, with a cargo cost calculator.',
-    tags: ['Calculator', 'Georgian'],
-    media: 'alliance',
-    links: [{ label: 'Visit alliancelgroup.com', href: 'https://alliancelgroup.com/' }]
-  },
-  {
-    name: 'DAPNA Trading Company',
-    domain: 'dapnaltd.com',
-    kind: 'E-commerce · online store',
-    desc: 'Online store for a tea distributor: product catalogue, categories, deals of the day and a cart, in Georgian.',
-    tags: ['E-commerce', 'Catalogue'],
-    media: 'dapnaltd',
-    links: [{ label: 'Visit dapnaltd.com', href: 'https://dapnaltd.com/' }]
-  },
-  {
-    name: 'DAPNA Employee Portal',
-    domain: 'my.dapnaltd.com',
-    kind: 'Internal system · HR portal',
-    desc: 'Staff portal for a company with offices in Tbilisi, Batumi, Kutaisi, Telavi and Khashuri. Employees sign in to handle leave, equipment and their documents in one place.',
-    tags: ['HR', 'Internal tool', 'Auth'],
-    media: 'dapnaportal',
-    links: [{ label: 'Sign-in page', href: 'https://my.dapnaltd.com/' }]
-  },
-  {
-    name: 'Xəbər.ge',
-    domain: 'xeber.ge',
-    kind: 'Media · news portal',
-    desc: 'Azerbaijani-language news portal: daily news by category, health and society sections, and exchange rates.',
-    tags: ['News', 'CMS'],
-    media: 'xeber',
-    links: [{ label: 'Visit xeber.ge', href: 'https://xeber.ge/' }]
-  },
-  {
-    name: 'İman Media',
-    domain: 'imanmedia.net',
-    kind: 'Media · video and audio portal',
-    desc: 'Media portal for watching and listening: a video library, live streams and audio in one place.',
-    tags: ['Video', 'Streaming'],
-    media: 'imanmedia',
-    links: [{ label: 'Visit imanmedia.net', href: 'https://imanmedia.net/' }]
-  },
-  {
-    name: 'Dinimiz.net',
-    domain: 'dinimiz.net',
-    kind: 'Web app · religious resources hub',
-    desc: 'A single home for Islamic resources: Quran, hadith, azan times, books, qibla direction, calendar, mosques, duas, media and infographics.',
-    tags: ['Web app', 'Hub'],
-    media: 'dinimiz',
-    links: [{ label: 'Visit dinimiz.net', href: 'https://dinimiz.net/' }]
-  }
-];
-
-// Skill groups shown in "Stack".
-const STACK_GROUPS = [
-  { title: 'Languages', items: ['C#', 'SQL', 'JavaScript', 'HTML & CSS'] },
-  { title: 'Platforms', items: ['.NET', 'Windows desktop', 'Web'] },
-  { title: 'Data & business systems', items: ['MSSQL', 'Logo Tiger ERP', 'Reporting'] },
-  { title: 'Work', items: ['System architecture', 'Integrations', 'IT management', 'Git'] }
-];
-
-// The windows that fall into the hero desk. "hot" ones use the accent colour.
-// Phones only get the ones marked core, so the small desk doesn't overflow.
-const DESK_WINDOWS = [
-  { label: 'C#', hot: true, core: true }, { label: '.NET', core: true }, { label: 'SQL', core: true }, { label: 'JavaScript', core: true },
-  { label: 'MSSQL', core: true }, { label: 'Logo Tiger ERP' }, { label: 'HTML & CSS', core: true }, { label: 'Integrations', hot: true, core: true },
-  { label: 'Architecture', core: true }, { label: 'Win32' }, { label: 'Git' }, { label: 'IT ops' }
-];
-
-// ============================================================
-// RENDERING
+// RENDERING + LANGUAGE SWITCHING
+// Content lives in content.js, interface strings in i18n.js.
 // ============================================================
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
 
-$('#workList').innerHTML = PROJECTS.map((p, i) => `
-  <article class="project reveal">
-    <div class="project-media">
-      ${p.video
-        ? `<video muted loop playsinline preload="none" poster="${esc(p.poster)}" data-src="${esc(p.video)}" aria-label="${esc(p.name)} demo"></video>
-           <button type="button" class="play-toggle" aria-label="Pause demo">Pause</button>`
-        : `<img src="${esc(p.poster)}" alt="${esc(p.name)}" loading="lazy">`}
-    </div>
-    <div class="project-body">
-      <div class="project-meta"><span>${String(i + 1).padStart(2, '0')}</span><span>${esc(p.kind)}</span><span>${esc(p.year)}</span></div>
-      <h3>${esc(p.name)}</h3>
-      <p class="tagline">${esc(p.tagline)}</p>
-      <p class="desc">${esc(p.desc)}</p>
-      ${p.points && p.points.length ? `<ul class="points">${p.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-      <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-      ${p.note ? `<p class="private-note"><span aria-hidden="true">🔒</span> ${esc(p.note)}</p>` : ''}
-      ${p.links.length ? `<div class="project-links">${p.links.map((l, j) => `<a class="btn ${j ? 'btn-ghost' : 'btn-primary'}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}
-    </div>
-  </article>`).join('');
+const CODES = LANGS.map(l => l.code);
+let lang = 'en';
+// Text value: plain string, or { en, az, ... } with English fallback
+const T = v => (v && typeof v === 'object') ? (v[lang] ?? v.en ?? '') : (v ?? '');
+// Interface string by key
+const t = k => (UI[lang] && UI[lang][k]) ?? UI.en[k] ?? k;
 
-$('#siteGrid').innerHTML = SITES.map((x, i) => `
-  <article class="site reveal" style="--d:${(i % 2) * 0.08}s">
-    <div class="site-frame">
-      <div class="site-bar" aria-hidden="true"><i></i><i></i><i></i><span>${esc(x.domain)}</span></div>
-      <div class="site-media">
-        <video muted loop playsinline preload="none" poster="assets/sites/${esc(x.media)}.jpg" data-src="assets/sites/${esc(x.media)}.mp4" aria-label="${esc(x.name)} scrolling preview"></video>
+// Extra web fonts some scripts need: Geologica covers ə and Cyrillic, Noto Sans Georgian covers Georgian
+const EXTRA_FONTS = {
+  az: 'family=Geologica:wght@600;800',
+  ru: 'family=Geologica:wght@600;800',
+  ka: 'family=Noto+Sans+Georgian:wght@400;500;600;800'
+};
+const loadedFonts = new Set();
+function ensureFonts(code) {
+  const q = EXTRA_FONTS[code];
+  if (!q || loadedFonts.has(q)) return;
+  loadedFonts.add(q);
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = `https://fonts.googleapis.com/css2?${q}&display=swap`;
+  document.head.appendChild(l);
+}
+
+function pickInitialLang() {
+  const fromUrl = new URLSearchParams(location.search).get('lang');
+  if (CODES.includes(fromUrl)) return fromUrl;
+  try { const saved = localStorage.getItem('lang'); if (CODES.includes(saved)) return saved; } catch (e) {}
+  return 'en';
+}
+
+function renderWork() {
+  $('#workList').innerHTML = PROJECTS.map((p, i) => `
+    <article class="project reveal${revealedOnce ? ' in done' : ''}">
+      <div class="project-media">
+        ${p.video
+          ? `<video muted loop playsinline preload="none" poster="${esc(p.poster)}" data-src="${esc(p.video)}" aria-label="${esc(p.name + ' ' + t('demo'))}"></video>
+             <button type="button" class="play-toggle">${esc(t('pause'))}</button>`
+          : `<img src="${esc(p.poster)}" alt="${esc(p.name)}" loading="lazy">`}
       </div>
-    </div>
-    <div class="site-body">
-      <p class="site-kind">${esc(x.kind)}</p>
-      <h3>${esc(x.name)}</h3>
-      <p class="site-desc">${esc(x.desc)}</p>
-      <div class="tags">${x.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-      <div class="site-links">${x.links.map(l => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>
-    </div>
-  </article>`).join('');
+      <div class="project-body">
+        <div class="project-meta"><span>${String(i + 1).padStart(2, '0')}</span><span>${esc(T(p.kind))}</span><span>${esc(T(p.year))}</span></div>
+        <h3>${esc(p.name)}</h3>
+        <p class="tagline">${esc(T(p.tagline))}</p>
+        <p class="desc">${esc(T(p.desc))}</p>
+        ${p.points && p.points.length ? `<ul class="points">${p.points.map(x => `<li>${esc(T(x))}</li>`).join('')}</ul>` : ''}
+        <div class="tags">${p.tags.map(x => `<span class="tag">${esc(T(x))}</span>`).join('')}</div>
+        ${p.note ? `<p class="private-note"><span aria-hidden="true">🔒</span> ${esc(T(p.note))}</p>` : ''}
+        ${p.links.length ? `<div class="project-links">${p.links.map((l, j) => `<a class="btn ${j ? 'btn-ghost' : 'btn-primary'}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(t(l.label))} <span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}
+      </div>
+    </article>`).join('');
+}
 
-$('#stackGrid').innerHTML = STACK_GROUPS.map((g, i) => `
-  <div class="stack-card reveal" style="--d:${i * 0.07}s">
-    <h3>${esc(g.title)}</h3>
-    <ul>${g.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-  </div>`).join('');
+function renderSites() {
+  $('#siteGrid').innerHTML = SITES.map((x, i) => `
+    <article class="site reveal${revealedOnce ? ' in done' : ''}" style="--d:${(i % 2) * 0.08}s">
+      <div class="site-frame">
+        <div class="site-bar" aria-hidden="true"><i></i><i></i><i></i><span>${esc(x.domain)}</span></div>
+        <div class="site-media">
+          <video muted loop playsinline preload="none" poster="assets/sites/${esc(x.media)}.jpg" data-src="assets/sites/${esc(x.media)}.mp4" aria-label="${esc(x.name + ', ' + t('preview'))}"></video>
+        </div>
+      </div>
+      <div class="site-body">
+        <p class="site-kind">${esc(T(x.kind))}</p>
+        <h3>${esc(x.name)}</h3>
+        <p class="site-desc">${esc(T(x.desc))}</p>
+        <div class="tags">${x.tags.map(g => `<span class="tag">${esc(T(g))}</span>`).join('')}</div>
+        <div class="site-links"><a href="${esc(x.href)}" target="_blank" rel="noopener">${esc(x.domain)} <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </article>`).join('');
+}
+
+function renderStack() {
+  $('#stackGrid').innerHTML = STACK_GROUPS.map((g, i) => `
+    <div class="stack-card reveal${revealedOnce ? ' in done' : ''}" style="--d:${i * 0.07}s">
+      <h3>${esc(T(g.title))}</h3>
+      <ul>${g.items.map(x => `<li>${esc(T(x))}</li>`).join('')}</ul>
+    </div>`).join('');
+}
+
+// Static text in index.html
+function applyStaticText() {
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  document.title = t('metaTitle');
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', t('metaDesc'));
+}
+
+// Entrances
+let revealedOnce = false;
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in');
+  setTimeout(() => e.target.classList.add('done'), 1200);
+  io.unobserve(e.target);
+}), { threshold: 0.12 });
+function observeReveals() {
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+}
+
+// Videos: project demos and site previews play only while visible, never for reduced motion
+let videoObservers = [];
+function wireVideos() {
+  videoObservers.forEach(o => o.disconnect());
+  videoObservers = [];
+  document.querySelectorAll('.project-media video').forEach(v => {
+    const btn = v.parentElement.querySelector('.play-toggle');
+    let userPaused = false;
+    const setBtn = () => { btn.textContent = v.paused ? t('play') : t('pause'); };
+    btn.addEventListener('click', () => {
+      if (!v.src) v.src = v.dataset.src;
+      if (v.paused) { userPaused = false; v.play().catch(() => {}); } else { userPaused = true; v.pause(); }
+    });
+    v.addEventListener('play', setBtn); v.addEventListener('pause', setBtn);
+    const o = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !reduceMQ.matches && !userPaused) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); }
+      else if (!e.isIntersecting) v.pause();
+    }, { threshold: 0.35 });
+    o.observe(v); videoObservers.push(o);
+    setBtn();
+  });
+  document.querySelectorAll('.site-media video').forEach(v => {
+    const o = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !reduceMQ.matches) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); }
+      else v.pause();
+    }, { threshold: 0.5 });
+    o.observe(v); videoObservers.push(o);
+  });
+}
+
+function setLang(code, { persist = true } = {}) {
+  lang = CODES.includes(code) ? code : 'en';
+  document.documentElement.lang = lang;
+  ensureFonts(lang);
+  applyStaticText();
+  renderWork(); renderSites(); renderStack();
+  observeReveals(); wireVideos();
+  const sel = $('#langSelect'); if (sel) sel.value = lang;
+  if (persist) {
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    const u = new URL(location.href);
+    if (lang === 'en') u.searchParams.delete('lang'); else u.searchParams.set('lang', lang);
+    history.replaceState(null, '', u);
+  }
+}
+
+// Language picker
+(function langPicker() {
+  const sel = $('#langSelect');
+  if (!sel) return;
+  sel.innerHTML = LANGS.map(l => `<option value="${l.code}" lang="${l.code}">${l.label} · ${esc(l.name)}</option>`).join('');
+  sel.addEventListener('change', () => setLang(sel.value));
+})();
+
+document.querySelectorAll('.section-head, .about-text, .facts, .contact > *').forEach(el => el.classList.add('reveal'));
+setLang(pickInitialLang(), { persist: false });
+revealedOnce = true;
 
 $('#year').textContent = new Date().getFullYear();
 
@@ -213,49 +172,11 @@ $('#year').textContent = new Date().getFullYear();
 const nav = $('#nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
 
-// Entrances
-const io = new IntersectionObserver(entries => entries.forEach(e => {
-  if (!e.isIntersecting) return;
-  e.target.classList.add('in');
-  setTimeout(() => e.target.classList.add('done'), 1200);
-  io.unobserve(e.target);
-}), { threshold: 0.12 });
-document.querySelectorAll('.section-head, .about-text, .facts, .contact > *').forEach(el => el.classList.add('reveal'));
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// Demo videos: load and play only while visible, never for reduced motion
-document.querySelectorAll('.project-media video').forEach(v => {
-  const btn = v.parentElement.querySelector('.play-toggle');
-  let userPaused = false;
-  const setBtn = () => { btn.textContent = v.paused ? 'Play' : 'Pause'; btn.setAttribute('aria-label', (v.paused ? 'Play' : 'Pause') + ' demo'); };
-  btn.addEventListener('click', () => {
-    if (!v.src) v.src = v.dataset.src;
-    if (v.paused) { userPaused = false; v.play().catch(() => {}); } else { userPaused = true; v.pause(); }
-  });
-  v.addEventListener('play', setBtn); v.addEventListener('pause', setBtn);
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !reduceMQ.matches && !userPaused) {
-      if (!v.src) v.src = v.dataset.src;
-      v.play().catch(() => {});
-    } else if (!e.isIntersecting) v.pause();
-  }, { threshold: 0.35 }).observe(v);
-  setBtn();
-  if (reduceMQ.matches) btn.textContent = 'Play';
-});
-
-// Site previews: play while at least half visible, pause otherwise
-document.querySelectorAll('.site-media video').forEach(v => {
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !reduceMQ.matches) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); }
-    else v.pause();
-  }, { threshold: 0.5 }).observe(v);
-});
-
 // Copy email
 document.querySelectorAll('.copy-btn').forEach(b => b.addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = t('copied'); }
   catch { b.textContent = b.dataset.copy; }
-  setTimeout(() => (b.textContent = 'Copy email'), 1800);
+  setTimeout(() => (b.textContent = t('copyEmail')), 1800);
 }));
 
 // ============================================================
