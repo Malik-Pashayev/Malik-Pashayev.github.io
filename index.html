@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Malik Pashayev · Full Stack Developer</title>
+<meta name="description" content="Malik Pashayev, full stack developer and IT manager. Web applications, business systems and playful Windows tools.">
+<meta name="theme-color" content="#EDEEF0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111317" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Malik Pashayev · Full Stack Developer">
+<meta property="og:description" content="Web applications, business systems and playful Windows tools.">
+<meta property="og:type" content="website">
+<!-- DEPLOY STEP: add og:url and og:image with the live absolute URL -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111317'/%3E%3Crect x='10' y='14' width='44' height='36' rx='6' fill='none' stroke='%23F5F2EA' stroke-width='4'/%3E%3Crect x='10' y='14' width='44' height='9' rx='4' fill='%23F5F2EA'/%3E%3Ccircle cx='32' cy='38' r='6' fill='%23FF5A36'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Malik Pashayev, home">
+    <span class="brand-mark" aria-hidden="true"><i></i></span>
+    <span>malik<b>.</b>pashayev</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- HERO: a desktop you can throw things around on -->
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Full stack developer · IT manager</p>
+    <h1>I build business systems by day and <em>give windows gravity</em> by night.</h1>
+    <p class="lede">I'm Malik. I build web applications and business systems, and as an IT manager I look after the architecture and integrations behind them.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">See my work <span aria-hidden="true">↓</span></a>
+      <a class="btn btn-ghost" href="https://github.com/Malik-Pashayev" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <div class="desk" id="desk" aria-label="A playful desktop: drag and throw the skill windows">
+    <div class="desk-bar" aria-hidden="true">
+      <span class="desk-title">desktop.exe</span>
+      <span class="desk-hint" id="deskHint">drag &amp; throw the windows</span>
+      <button type="button" class="desk-btn" id="rainBtn">Make it rain</button>
+    </div>
+    <div class="desk-floor" id="deskFloor">
+      <!-- Windows are generated from the STACK list in main.js -->
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="section-head">
+    <p class="kicker">01 / Selected work</p>
+    <h2>Things I've shipped</h2>
+  </div>
+  <div class="work-list" id="workList">
+    <!-- Project cards are rendered from PROJECTS in main.js -->
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-head">
+    <p class="kicker">02 / About</p>
+    <h2>Two jobs, one habit: make the system simpler.</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a full stack developer with experience building web applications and business systems. Today I also work as an IT manager, which means I'm the person who designs the architecture, wires the integrations together and answers the phone when something breaks.</p>
+      <p>That mix shapes how I build. I care about the boring parts that keep a company running: clean data, reliable reports, systems that talk to each other. And when I have a free evening, I make small Windows toys that are fun to use.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>IT Manager</dd></div>
+      <div><dt>Focus</dt><dd>System architecture, integrations, web apps</dd></div>
+      <div><dt>Builds with</dt><dd>C#, .NET, SQL, web</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section" id="stack">
+  <div class="section-head">
+    <p class="kicker">03 / Stack</p>
+    <h2>Tools I reach for</h2>
+  </div>
+  <div class="stack-grid" id="stackGrid">
+    <!-- Rendered from STACK_GROUPS in main.js -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <p class="kicker">04 / Contact</p>
+  <h2 class="contact-title">Have a system that needs untangling?</h2>
+  <p class="contact-lede">Email is the fastest way to reach me.</p>
+  <div class="contact-row">
+    <a class="contact-mail" href="mailto:malik.paashayev@gmail.com">malik.paashayev@gmail.com</a>
+    <button type="button" class="btn btn-ghost copy-btn" data-copy="malik.paashayev@gmail.com">Copy email</button>
+  </div>
+  <ul class="socials">
+    <li><a href="https://github.com/Malik-Pashayev" target="_blank" rel="noopener">GitHub ↗</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© <span id="year">2026</span> Malik Pashayev</span>
+  <span class="footer-note">Hand-built with plain HTML, CSS and JavaScript.</span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
