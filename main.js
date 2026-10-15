@@ -9,13 +9,16 @@ const PROJECTS = [
     year: 'In production',
     kind: 'ERP · DAPNA LTD · internal system',
     tagline: 'One web ERP that ties the company\'s systems together.',
-    desc: 'A web-based ERP I built in C# for DAPNA. It sits between the accounting, warehouse and access-control systems the company already runs, so data moves between them instead of being typed in twice.',
+    desc: 'A web-based ERP I built in C# for DAPNA. It sits on top of Logo, Axata and BioStar, so sales, warehouse and staff data move between them instead of being typed in twice. Daily work runs from one dashboard: orders, prices, client credit, reports and bonuses.',
     points: [
-      'Integration with Logo for accounting and ERP data',
-      'Integration with Axata for warehouse operations',
-      'Integration with BioStar for access control and attendance'
+      'Orders: Excel import, order entry and order management',
+      'Prices and clients: price lists, promotions, credit limits, block and unblock',
+      'Reports: sales detail, returns, accounting, and RS.GE to Logo invoice reconciliation',
+      'Bonuses for clients, drivers and Axata warehouse staff',
+      'Sync actions: Axata warehouse status against Logo stock, driver codes, loading points',
+      'Settings for databases, users and permissions'
     ],
-    tags: ['C#', 'Web', 'Logo', 'Axata', 'BioStar'],
+    tags: ['C#', 'Web', 'Logo', 'Axata', 'BioStar', 'RS.GE'],
     video: 'assets/bridge.mp4',
     poster: 'assets/bridge.jpg',
     note: 'Internal company system, not public. A live walkthrough is available on request.',
